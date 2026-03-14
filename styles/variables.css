@@ -4,5 +4,9 @@
 */
 :root {
   --bg-color: #000028;
-   --bg-image: url(../images/cover-image-dark.png);
+  --bg-image: url(../images/cover-image-dark.png);
+  --bg-decor: #FF0070;
+  --title-color: #D800FF;
+  --dark-text-color: #000028;
+  --light-text-color: rgb(255, 0, 112);
 }
