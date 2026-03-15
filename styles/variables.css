@@ -3,12 +3,18 @@
   и их переопределение под различные устройства
 */
 :root {
-  --bg-color: #000028;
+  --dark-color: #000028;
+
+  /* Цвета и фон */
+  --bg-color: var(--dark-color);
   --bg-image: url(../images/cover-image-dark.png);
-  --bg-decor: #FF0070;
   --title-color: #D800FF;
-  --dark-text-color: #000028;
-  --light-text-color: #FF0070;
-  --wlight-text-color: #F1B2CE;
+  --dark-text-color: var(--dark-color);
+  --light-text-color: #F1B2CE;
   --accent-color: #FF0070;
+  --accent-color-alpha: rgb(255, 0, 112, .4);
+
+  /* Текст */
+  --font-size: 18px;
+  --line-height: 1.3;
 }
