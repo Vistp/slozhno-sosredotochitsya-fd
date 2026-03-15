@@ -51,6 +51,7 @@
 /* Стили шапки */
 
 .header {
+  margin-block-end: 40px; /* TODO: добавить обертки для секций для отступов*/
   border: 1px solid aqua;
   position: relative;
   height: 100vh;
@@ -143,6 +144,57 @@
   font-size: 18px;
   line-height: 1.3;
   color: var(--dark-text-color);
+}
+
+/* Стили секций */
+
+.section {
+  border: 1px solid rgb(185, 221, 23);
+  margin-block-end: 50px; /* TODO: добавить обертки для секций для отступов + от футера секйия 40px*/
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.section__title {
+  font-size: 18px;
+  line-height: 1.3;
+  color: var(--light-text-color);
+}
+
+.card {
+  /*  */
+}
+
+.card__title {
+  margin-block-end: 10px; /* TODO: заменить gap для случчаев преполнения комнтентом карточки*/
+  font-size: 18px;
+  line-height: 1.3;
+  color: var(--dark-text-color);
+}
+
+.card__title-normal {
+  font-weight: normal;
+}
+
+.card__text {
+  font-size: 18px;
+  line-height: 1.3;
+  font-weight: 400;
+  color: var(--wlight-text-color);
+}
+
+.card__link {
+  text-decoration: none;
+  text-shadow: 1px 1px 0 var(--accent-color);
+}
+
+.card__link:hover {
+  border-bottom: 1px solid var(--wlight-text-color);
+}
+
+.card__link:focus-visible {
+  border: 1px solid var(--wlight-text-color);
 }
 
 /* Стили подвала */

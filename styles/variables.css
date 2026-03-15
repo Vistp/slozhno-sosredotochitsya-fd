@@ -8,5 +8,7 @@
   --bg-decor: #FF0070;
   --title-color: #D800FF;
   --dark-text-color: #000028;
-  --light-text-color: rgb(255, 0, 112);
+  --light-text-color: #FF0070;
+  --wlight-text-color: #F1B2CE;
+  --accent-color: #FF0070;
 }
