@@ -11,8 +11,6 @@
   background-repeat: no-repeat;
   min-height: 100vh;
   padding-inline: 10px;
-
-  width: 365px;
 }
 
 .title-decor {
@@ -214,6 +212,7 @@
 .gallery__image {
   width: 100%;
   height: 100%;
+  object-fit: cover;
 }
 
 /* Стили подвала */
@@ -236,4 +235,48 @@
   text-transform: lowercase;
   color: var(--title-color);
   text-shadow: 2px 2px 0 var(--accent-color);
+}
+
+/* Медиазапросы */
+
+@media (min-width: 768px) {
+  .page {
+    padding-inline: 20px;
+  }
+
+  .gallery__wrapper {
+    gap: 20px;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: 192px 230px 318px; 
+    grid-template-areas:
+      "sunset sunset ice-cream"
+      "tape books ice-cream"
+      "tape street street";
+  }
+
+  .sunset { 
+    grid-area: sunset;
+  }
+
+  .ice-cream { 
+    grid-area: ice-cream;
+  }
+  
+  .tape {
+    grid-area: tape;
+  }
+  
+  .books {
+    grid-area: books;
+  }
+  
+  .street {
+    grid-area: street;
+  }
+}
+
+@media (min-width: 1024px) {
+  .gallery__wrapper {
+    grid-template-rows: 260px 315px 433px;
+  }
 }
