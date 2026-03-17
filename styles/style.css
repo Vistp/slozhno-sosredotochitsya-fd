@@ -10,7 +10,7 @@
   background-attachment: fixed;
   background-repeat: no-repeat;
   min-height: 100vh;
-  padding-inline: 10px;
+  padding: 10px;
 }
 
 .title-decor {
@@ -34,14 +34,14 @@
 
 /* Верхний правый угол */
 .decorated-zone::before {
-  top: 10px;
+  top: 0;
   right: 0;
   border-width: 1px 1px 0 0;
 }
 
 /* Нижний левый угол */
 .decorated-zone::after {
-  bottom: 10px;
+  bottom: 0;
   left: 0;
   border-width: 0 0 1px 1px;
 }
@@ -160,6 +160,13 @@
   color: var(--accent-color);
 }
 
+.section__subtitle {
+  margin-block-end: 10px; /* TODO: заменить gap для случчаев преполнения комнтентом карточки*/
+  font-size: var(--font-size);
+  line-height: var(--line-height);
+  color: var(--dark-text-color);
+}
+
 .card {
   /*  */
 }
@@ -171,7 +178,8 @@
   color: var(--dark-text-color);
 }
 
-.card__title-normal {
+/* TODO: перенести в общие стили */
+.font-weight_normal {
   font-weight: normal;
 }
 
@@ -241,7 +249,43 @@
 
 @media (min-width: 768px) {
   .page {
-    padding-inline: 20px;
+    padding: 20px;
+  }
+
+  .section-standard {
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+    grid-auto-rows: min-content;
+  }
+
+  .section-standard .section__title {
+    grid-column: 1;
+    grid-row: 1 / 10; /* TODO: заменить*/
+
+  }
+
+  .section-standard .section__subtitle {
+    grid-column: 2;
+    grid-row: 1;
+  }
+
+  .section-standard .card {
+    grid-column: 2;
+  }
+
+  .section-special {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-auto-flow: row;
+  }
+
+  .section-special .section__title {
+    grid-row: 1;
+    grid-column: 1/-1;  /* TODO: заменить*/
+  }
+  
+  .section-special .card {
+    grid-column: 1/4;
   }
 
   .gallery__wrapper {
@@ -276,6 +320,10 @@
 }
 
 @media (min-width: 1024px) {
+  .section-special .card {
+    grid-column: span 1;
+  }
+  
   .gallery__wrapper {
     grid-template-rows: 260px 315px 433px;
   }
