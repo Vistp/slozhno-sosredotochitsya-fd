@@ -9,4 +9,18 @@
     Так стили написанные ниже будут иметь больший вес,
     чем стили в медиазапросе предпочтений пользователя
   */
+   --dark-color: #000028;
+
+  /* Цвета и фон */
+  --bg-color: var(--dark-color);
+  --bg-image: url(../images/cover-image-dark.png);
+  --title-color: #D800FF;
+  --dark-text-color: var(--dark-color);
+  --light-text-color: #F1B2CE;
+  --accent-color: #FF0070;
+  --accent-color-alpha: rgb(255, 0, 112, .4);
 }
+
+.theme-dark .header__span {
+    display: inline;
+  }
