@@ -252,6 +252,11 @@
     padding: 20px;
   }
 
+  .header__subtitle {
+    max-width: 364px;
+    justify-self: end;
+  }
+
   .section-standard {
     display: grid;
     grid-template-columns: 1fr 2fr;
@@ -281,7 +286,7 @@
 
   .section-special .section__title {
     grid-row: 1;
-    grid-column: 1/-1;  /* TODO: заменить*/
+    grid-column: 1;
   }
   
   .section-special .card {
@@ -320,8 +325,16 @@
 }
 
 @media (min-width: 1024px) {
+  .header__subtitle {
+    max-width: 491px;
+  }
+
   .section-special .card {
     grid-column: span 1;
+  }
+
+  .section-special .card:first-of-type {
+    grid-column-start: 1;
   }
   
   .gallery__wrapper {
