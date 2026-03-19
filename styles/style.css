@@ -111,34 +111,31 @@
   text-align: center;
   font-size: var(--font-size);
   text-transform: lowercase;
-  border: none;
+  border: 1px solid transparent;
   outline: none;
-  /* color: var(--accent-color); */
   color: var(--button-color);
   background-color: transparent;
   cursor: pointer;
 }
 
 .header__theme-menu-button:hover {
-  outline: 1px solid var(--accent-color-alpha);
+  border: 1px solid var(--accent-color-alpha);
 }
 
-/* .header__theme-menu-button:active {
-  outline: 1px solid var(--accent-color);
-} */
+.header__theme-menu-button:active {
+  border: 1px solid var(--button-color);
+}
 
 .header__theme-menu-button:focus-visible {
-  /* TODO: скачет при фокусе кнопка из-за бордера. мб добавить бордер прозрачный на кнопку дефолтную */
   border-bottom: 1px solid var(--button-color);
 }
 
 .header__theme-menu-button_active {
-  outline: 1px solid var(--button-color);
+  pointer-events: none;
+  border: 1px solid var(--button-color);
 }
 
 .header__title {
-  /* justify-self: center;
-  align-self: center; */
   font-size: clamp(7.25rem, 7.0115rem + 1.0178vw, 7.5rem);
   line-height: 0.825;
   text-transform: lowercase;
@@ -283,6 +280,11 @@
     bottom: 20px;
   }
 
+  .header__title {
+    margin-inline-start: -20px;
+    font-size: clamp(7.5rem, 0.5625rem + 14.4531vw, 9.8125rem);
+  }
+
   .header__subtitle {
     max-width: 364px;
     justify-self: end;
@@ -320,7 +322,7 @@
     grid-row: 1;
     grid-column: 1;
   }
-  
+
   .section-special .card {
     grid-column: 1/4;
   }
@@ -332,31 +334,35 @@
   .gallery__wrapper {
     gap: 20px;
     grid-template-columns: repeat(3, 1fr);
-    grid-template-rows: 192px 230px 318px; 
+    grid-template-rows: 192px 230px 318px;
     grid-template-areas:
       "sunset sunset ice-cream"
       "tape books ice-cream"
       "tape street street";
   }
 
-  .sunset { 
+  .sunset {
     grid-area: sunset;
   }
 
-  .ice-cream { 
+  .ice-cream {
     grid-area: ice-cream;
   }
-  
+
   .tape {
     grid-area: tape;
   }
-  
+
   .books {
     grid-area: books;
   }
-  
+
   .street {
     grid-area: street;
+  }
+
+  .footer__title {
+    font-size: clamp(7.5rem, 0.5625rem + 14.4531vw, 9.8125rem);
   }
 }
 
