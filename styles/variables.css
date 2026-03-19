@@ -9,10 +9,14 @@
   --bg-color: var(--dark-color);
   --bg-image: url(../images/cover-image-dark.png);
   --title-color: #D800FF;
-  --dark-text-color: var(--dark-color);
-  --light-text-color: #F1B2CE;
+  --primary-text-color: var(--dark-color);
+  --secondary-text-color: #F1B2CE;
   --accent-color: #FF0070;
+  /* Цвет ховера кнопок навигации */
   --accent-color-alpha: rgb(255, 0, 112, .4);
+  --button-color: var(--accent-color);
+  --decorated-zone: var(--accent-color);
+  --footer-shadow-color: var(--accent-color);
 
   /* Текст */
   --font-size: 18px;

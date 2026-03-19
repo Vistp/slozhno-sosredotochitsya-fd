@@ -10,11 +10,28 @@
   background-attachment: fixed;
   background-repeat: no-repeat;
   min-height: 100vh;
-  padding: 10px;
+}
+
+/* Обертка для внутренних отступов */
+.container {
+  padding-inline: 10px;
+}
+
+.container-header {
+  padding-block-start: 10px;
+  padding-block-end: 40px;
+}
+
+.container-footer {
+  padding-block-start: 40px;
 }
 
 .title-decor {
   background-color: var(--accent-color);
+}
+
+.font-weight_normal {
+  font-weight: normal;
 }
 
 /* Декоративные элементы для шапки и футера */
@@ -28,7 +45,7 @@
   position: absolute;
   width: 25px;
   height: 25px;
-  border-color: var(--accent-color);
+  border-color: var(--decorated-zone);
   border-style: solid;
 }
 
@@ -41,7 +58,7 @@
 
 /* Нижний левый угол */
 .decorated-zone::after {
-  bottom: 0;
+  bottom: 10px;
   left: 0;
   border-width: 0 0 1px 1px;
 }
@@ -49,17 +66,12 @@
 /* Стили шапки */
 
 .header {
-  margin-block-end: 40px; /* TODO: добавить обертки для секций для отступов*/
-  border: 1px solid aqua;
+  background-color:blanchedalmond;
   position: relative;
   height: 100vh;
   min-height: 668px;
   display: grid;
   grid-template-rows: 1fr min-content 1fr;
-
-  /* TODO: Тут разобраться */
-  /* justify-content: end;
-  align-items: center; */
 }
 
 .header__theme-menu {
@@ -101,11 +113,11 @@
   text-transform: lowercase;
   border: none;
   outline: none;
-  color: var(--accent-color);
+  /* color: var(--accent-color); */
+  color: var(--button-color);
   background-color: transparent;
   cursor: pointer;
 }
-
 
 .header__theme-menu-button:hover {
   outline: 1px solid var(--accent-color-alpha);
@@ -117,11 +129,11 @@
 
 .header__theme-menu-button:focus-visible {
   /* TODO: скачет при фокусе кнопка из-за бордера. мб добавить бордер прозрачный на кнопку дефолтную */
-  border-bottom: 1px solid var(--accent-color); 
+  border-bottom: 1px solid var(--button-color);
 }
 
 .header__theme-menu-button_active {
-  outline: 1px solid var(--accent-color);
+  outline: 1px solid var(--button-color);
 }
 
 .header__title {
@@ -136,19 +148,24 @@
 
 .header__subtitle {
   align-self: center;
-  max-width: 355px; /* TODO: менять в медиазопросах */
+  max-width: 355px;
   display: flex;
   flex-direction: column;
   font-size: var(--font-size);
   line-height: var(--line-height);
-  color: var(--dark-text-color);
+  color: var(--primary-text-color);
+}
+
+/* main */
+.main {
+  display: flex;
+  flex-direction: column;
+  gap: 50px;
 }
 
 /* Стили секций */
 
 .section {
-  border: 1px solid rgb(185, 221, 23);
-  margin-block-end: 50px; /* TODO: добавить обертки для секций для отступов + от футера секйия 40px*/
   display: flex;
   flex-direction: column;
   gap: 20px;
@@ -161,33 +178,34 @@
 }
 
 .section__subtitle {
-  margin-block-end: 10px; /* TODO: заменить gap для случчаев преполнения комнтентом карточки*/
   font-size: var(--font-size);
   line-height: var(--line-height);
-  color: var(--dark-text-color);
+  color: var(--primary-text-color);
+}
+
+.container-articles {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
 }
 
 .card {
-  /*  */
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
 }
 
 .card__title {
-  margin-block-end: 10px; /* TODO: заменить gap для случчаев преполнения комнтентом карточки*/
   font-size: var(--font-size);
   line-height: var(--line-height);
-  color: var(--dark-text-color);
-}
-
-/* TODO: перенести в общие стили */
-.font-weight_normal {
-  font-weight: normal;
+  color: var(--primary-text-color);
 }
 
 .card__text {
   font-size: var(--font-size);
   line-height: var(--line-height);
   font-weight: 400;
-  color: var(--light-text-color);
+  color: var(--secondary-text-color);
 }
 
 .card__link {
@@ -196,11 +214,11 @@
 }
 
 .card__link:hover {
-  border-bottom: 1px solid var(--light-text-color);
+  border-bottom: 1px solid var(--secondary-text-color);
 }
 
 .card__link:focus-visible {
-  border: 1px solid var(--light-text-color);
+  border: 1px solid var(--secondary-text-color);
 }
 
 .gallery {
@@ -208,7 +226,7 @@
 }
 
 .gallery__title {
-  color: var(--dark-text-color);
+  color: var(--primary-text-color);
 }
 
 .gallery__wrapper {
@@ -226,7 +244,7 @@
 /* Стили подвала */
 
 .footer {
-  border: 1px solid aqua;
+  background-color:blanchedalmond;
   height: 100vh;
   min-height: 668px;
   display: grid;
@@ -242,19 +260,36 @@
   line-height: 0.825;
   text-transform: lowercase;
   color: var(--title-color);
-  text-shadow: 2px 2px 0 var(--accent-color);
+  text-shadow: 2px 2px 0 var(--footer-shadow-color);
 }
 
 /* Медиазапросы */
 
 @media (min-width: 768px) {
-  .page {
-    padding: 20px;
+  .container {
+    padding-inline: 20px;
+  }
+
+  .container-header {
+    padding-block-start: 20px;
+    padding-block-end: 60px;
+  }
+
+  .container-footer {
+    padding-block-start: 60px;
+  }
+
+  .decorated-zone::after {
+    bottom: 20px;
   }
 
   .header__subtitle {
     max-width: 364px;
     justify-self: end;
+  }
+
+  .main {
+    gap: 80px;
   }
 
   .section-standard {
@@ -265,8 +300,6 @@
 
   .section-standard .section__title {
     grid-column: 1;
-    grid-row: 1 / 10; /* TODO: заменить*/
-
   }
 
   .section-standard .section__subtitle {
@@ -290,6 +323,10 @@
   
   .section-special .card {
     grid-column: 1/4;
+  }
+
+  .gallery {
+    gap: 20px;
   }
 
   .gallery__wrapper {
@@ -344,7 +381,7 @@
   .section-special .card:first-of-type {
     grid-column-start: 1;
   }
-  
+
   .gallery__wrapper {
     grid-template-rows: 260px 315px 433px;
   }
