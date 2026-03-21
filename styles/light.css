@@ -11,18 +11,19 @@
   */
 
   /* Цвета и фон */
-  --bg-color: #fff1f7;
+  --bg-color: #FFF1F7;
   --bg-image: url(../images/cover-image-light.png);
-  --title-color: #ffc2e6;
+  --title-color: #FFC2E6;
   --primary-text-color: #353430;
   --secondary-text-color: #353430;
-  --accent-color: #ff8dcb;
+  --accent-color: #FF8DCB;
+  --section-title-color: #353430;
   /* Цвет ховера кнопок навигации */
   --accent-color-alpha: rgb(53, 52, 48, 0.4);
   --button-color: var(--primary-text-color);
   --decorated-zone: var(--primary-text-color);
   /* Повторяет акцент для неона */
-  --footer-shadow-color: #ff0070;
+  --footer-shadow-color: #FF0070;
 }
 
 .theme-light .header__span {
@@ -31,16 +32,17 @@
 
 @media (prefers-color-scheme: light) {
   :root {
-    --bg-color: #fff1f7;
+    --bg-color: #FFF1F7;
     --bg-image: url(../images/cover-image-light.png);
-    --title-color: #ffc2e6;
+    --title-color: #FFC2E6;
     --primary-text-color: #353430;
     --secondary-text-color: #353430;
-    --accent-color: #ff8dcb;
+    --accent-color: #FF8DCB;
+    --section-title-color: #353430;
     --accent-color-alpha: rgb(53, 52, 48, 0.4);
     --button-color: var(--primary-text-color);
     --decorated-zone: var(--primary-text-color);
-    --footer-shadow-color: #ff0070;
+    --footer-shadow-color: #FF0070;
   }
 
   .header__span {

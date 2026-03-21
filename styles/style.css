@@ -12,16 +12,13 @@
   min-block-size: 100vh;
 }
 
-/* Обертка для внутренних отступов */
-.container {
-  padding-inline: 10px;
-}
-
 .container-header {
+  padding-inline: 10px;
   padding-block-end: 40px;
 }
 
 .container-footer {
+  padding-inline: 10px;
   padding-block-start: 40px;
 }
 
@@ -110,6 +107,7 @@
   font-size: var(--font-size);
   text-transform: lowercase;
   border: 1px solid transparent;
+  transition: border 0.5s;
   outline: none;
   color: var(--button-color);
   background-color: transparent;
@@ -124,8 +122,10 @@
   border: 1px solid var(--button-color);
 }
 
-.header__theme-menu-button:focus-visible {
+.header__theme-menu-button:focus-visible,
+.header__theme-menu-button:focus {
   border-bottom: 1px solid var(--button-color);
+  outline: none;
 }
 
 .header__theme-menu-button_active {
@@ -141,35 +141,36 @@
   text-shadow: 4px 4px 0 var(--accent-color);
 }
 
-.header__subtitle {
+.header__description-text {
+  margin-block-end: 10px;
   align-self: center;
   max-inline-size: 355px;
   display: flex;
   flex-direction: column;
   font-size: var(--font-size);
+  font-weight: bold;
   line-height: var(--line-height);
   color: var(--primary-text-color);
 }
 
-/* main */
-.main {
-  display: flex;
-  flex-direction: column;
-  gap: 50px;
-}
-
 /* Стили секций */
 
-.section {
+/* Обертка для внутренних отступов и сетки */
+.section__inner {
+  padding-inline: 10px;
   display: flex;
   flex-direction: column;
   gap: 20px;
 }
 
+.section__inner-margin-block-end {
+  margin-block-end: 50px;
+}
+
 .section__title {
   font-size: var(--font-size);
   line-height: var(--line-height);
-  color: var(--accent-color);
+  color: var(--section-title-color);
 }
 
 .section__subtitle {
@@ -206,14 +207,17 @@
 .card__link {
   text-decoration: none;
   text-shadow: 1px 1px 0 var(--accent-color);
+  border: 1px solid transparent;
+  transition: border 0.5s;
 }
 
 .card__link:hover {
   border-bottom: 1px solid var(--secondary-text-color);
 }
 
-.card__link:focus-visible {
+.card__link:focus-visible, .card__link:focus {
   border: 1px solid var(--secondary-text-color);
+  outline: none;
 }
 
 .gallery {
@@ -260,15 +264,17 @@
 /* Медиазапросы */
 
 @media (min-width: 768px) {
-  .container {
+  .section__inner {
     padding-inline: 20px;
   }
 
   .container-header {
+    padding-inline: 20px;
     padding-block-end: 60px;
   }
 
   .container-footer {
+    padding-inline: 20px;
     padding-block-start: 60px;
   }
 
@@ -289,49 +295,51 @@
   }
 
   .header__title {
+    margin-block-end: 20px;
     margin-inline-start: -20px;
     font-size: clamp(7.5rem, 0.5625rem + 14.4531vw, 9.8125rem);
   }
 
-  .header__subtitle {
+  .header__description-text {
+    margin-block-end: 40px;
     max-inline-size: 364px;
     justify-self: end;
   }
 
-  .main {
-    gap: 80px;
+  .section__inner-margin-block-end {
+    margin-block-end: 80px;
   }
 
-  .section-standard {
+  .section__inner-standard {
     display: grid;
     grid-template-columns: 1fr 2fr;
     grid-auto-rows: min-content;
   }
 
-  .section-standard .section__title {
+  .section__inner-standard .section__title {
     grid-column: 1;
   }
 
-  .section-standard .section__subtitle {
+  .section__inner-standard .section__subtitle {
     grid-column: 2;
     grid-row: 1;
   }
 
-  .section-standard .card {
+  .section__inner-standard .card {
     grid-column: 2;
   }
 
-  .section-special {
+  .section__inner-special {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
   }
 
-  .section-special .section__title {
+  .section__inner-special .section__title {
     grid-row: 1;
     grid-column: 1;
   }
 
-  .section-special .card {
+  .section__inner-special .card {
     grid-column: 1/4;
   }
 
@@ -342,7 +350,7 @@
   .gallery__wrapper {
     gap: 20px;
     grid-template-columns: repeat(3, 1fr);
-    grid-template-rows: 192px 230px 318px;
+    grid-template-rows: auto auto auto;
     grid-template-areas:
       "sunset sunset ice-cream"
       "tape books ice-cream"
@@ -381,22 +389,23 @@
   }
 
   .header__theme-menu-list {
+    margin-block-start: -3px;
     flex-direction: row;
   }
 
-  .header__subtitle {
+  .header__description-text {
     max-width: 491px;
   }
 
-  .section-special .card {
+  .section__inner-standard {
+    grid-template-columns: 1fr 2.06fr;
+  }
+
+  .section__inner-special .card {
     grid-column: span 1;
   }
 
-  .section-special .card:first-of-type {
+  .section__inner-special .card:first-of-type {
     grid-column-start: 1;
-  }
-
-  .gallery__wrapper {
-    grid-template-rows: 260px 315px 433px;
   }
 }

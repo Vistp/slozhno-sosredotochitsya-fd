@@ -12,6 +12,7 @@
   --primary-text-color: var(--dark-color);
   --secondary-text-color: #F1B2CE;
   --accent-color: #FF0070;
+  --section-title-color: var(--accent-color);
   /* Цвет ховера кнопок навигации */
   --accent-color-alpha: rgb(255, 0, 112, .4);
   --button-color: var(--accent-color);
